@@ -1,5 +1,6 @@
 'use client'
 import { useContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { ProgressDataContext } from '../context/ProgressDataContext'
 
 import { Quiz } from '../components/Quiz.js'
@@ -7,6 +8,8 @@ import { Quiz } from '../components/Quiz.js'
 export default function QuizPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [quizCompleted, setQuizCompleted] = useState(false)
+
+    const router = useRouter()
 
     const quiz = [
         {
@@ -38,18 +41,31 @@ export default function QuizPage() {
         }
     ]
 
+    // Set quizCompleted to the current value of tag2.completed
     useEffect(() => {
         if (progressData) {
             setQuizCompleted(progressData.tag2.completed)
         }
     }, [progressData])
 
+    // When quizCompleted changes to true, set progress data tag 2 to true
     useEffect(() => {
         setProgressData(prevState => ({
             ...prevState,
             tag2: { ...prevState.tag2, completed: quizCompleted }
         }))
     }, [quizCompleted])
+
+    // If all the tags are complete, reroute the user to the Completed page
+    useEffect(() => {
+        if (quizCompleted) {
+            console.log('it is runnning')
+            if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
+                console.log('what is up')
+                router.push('/huntcompleted')
+            }
+        }
+    }, [progressData])
 
     return (
         <main className='p-5'>
