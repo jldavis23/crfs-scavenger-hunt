@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useRef, useEffect} from 'react'
+import { useContext, useRef, useEffect, useState } from 'react'
 import { ProgressDataContext } from '../context/ProgressDataContext'
 import { gsap } from "gsap"
 
@@ -19,6 +19,34 @@ export const ProgressBar = () => {
       duration: 0.5,
     });
   }, [completedTags])
+
+
+
+
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const instructions = [
+    'Connect to the wifi: Wilderness, Password: CRFS',
+    'Search the station for signs and scan the located chip',
+    'Learn about Captiol Reef, do the activity, and earn a special prize at the end'
+  ]
+
+  const handleNext = () => {
+    setCurrentIndex(prevIndex => {
+      return prevIndex + 1
+    })
+  }
+
+  const handleBack = () => {
+    setCurrentIndex(prevIndex => {
+      return prevIndex - 1
+    })
+  }
+
+  const handleStart = () => {
+    document.getElementById('modal1').close()
+    setCurrentIndex(0)
+  }
 
   return (
     <section>
@@ -47,28 +75,40 @@ export const ProgressBar = () => {
         </div>
       </div>
 
-      {/* Open the modal using document.getElementById('ID').showModal() method */}
+      {/* Instructions Modal */}
       <dialog id="instructions_modal" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-3xl mb-4 font-cabinSketch">Welcome to the Capitol Reef Field Station Scavenger Hunt!</h3>
           <div className="flex flex-col gap-3">
             <div className="flex gap-3">
-                <p className="text-4xl font-semibold text-primary flex items-center">1</p>
-                <p>Connect to the wifi: Wilderness, Password: CRFS</p>
+              <p className="text-4xl font-semibold text-primary flex items-center">1</p>
+              <p>Search around the field station for small white tags attached to the walls.</p>
             </div>
             <div className="flex gap-3">
-                <p className="text-4xl font-semibold text-primary flex items-center">2</p>
-                <p>Search the station for signs and scan the located chip</p>
+              <p className="text-4xl font-semibold text-primary flex items-center">2</p>
+              <p>When you’ve located a tag, place your phone over it to bring up a new webpage.</p>
             </div>
             <div className="flex gap-3">
-                <p className="text-4xl font-semibold text-primary flex items-center">3</p>
-                <p>Learn about Captiol Reef, do the activity, and earn a special prize at the end</p>
+              <p className="text-4xl font-semibold text-primary flex items-center">3</p>
+              <p>Read the information on the page and complete the activity.</p>
+            </div>
+            <div className="flex gap-3">
+              <p className="text-4xl font-semibold text-primary flex items-center">4</p>
+              <p>Look for more tags! Your progress will be tracked in the progress bar above.</p>
+            </div>
+            <div className="flex gap-3">
+              <p className="text-4xl font-semibold text-primary flex items-center">5</p>
+              <p>If you get stuck, ask for a hint by clicking on the “hint” button</p>
+            </div>
+            <div className="flex gap-3">
+              <p className="text-4xl font-semibold text-primary flex items-center">6</p>
+              <p>Once you’ve located and completed the activity for each tag, show your completed screen to the site manager to earn a small prize!</p>
             </div>
           </div>
           <div className="modal-action">
             <form method="dialog" className="w-full">
               {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-primary w-full">Got It!</button>
+              <button className="btn btn-primary w-full">GOT IT!</button>
             </form>
           </div>
         </div>

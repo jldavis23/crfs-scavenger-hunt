@@ -2,7 +2,7 @@
 import { useState, useContext, useEffect } from "react"
 import { ProgressDataContext } from "./context/ProgressDataContext"
 
-import { Instructions } from "./components/Instructions"
+// import { Instructions } from "./components/Instructions"
 
 export default function Home() {
   const { progressData, setProgressData } = useContext(ProgressDataContext)
@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main>
-      {firstVisit ? <Instructions setProgressData={setProgressData} /> : ''}
+      {/* {firstVisit ? <Instructions setProgressData={setProgressData} /> : ''} */}
     </main>
   )
 } 
