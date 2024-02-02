@@ -7,18 +7,20 @@ export const ProgressBar = () => {
   //VARIABLES
   const { progressData } = useContext(ProgressDataContext)
   const completedTags = Object.keys(progressData).filter(tag => progressData[tag].completed)
+  let percentComplete = (completedTags.length / Object.keys(progressData).length) * 100
   const bar = useRef(null)
+
 
   //HOOKS
   useEffect(() => {
     const progressBar = bar.current
-    progressBar.value = 0;
+    progressBar.style.width = '0%'
 
     gsap.to(progressBar, {
-      value: completedTags.length,
-      duration: 0.5,
+      width: `${percentComplete}%`,
+      duration: 0.3, // Adjust the duration as needed
     });
-  }, [completedTags])
+  }, [percentComplete])
 
 
 
@@ -50,28 +52,22 @@ export const ProgressBar = () => {
 
   return (
     <section>
-      <div className="flex gap-3 p-4 bg-primary text-white">
+      <div id="header" className="flex gap-3 p-4 bg-primary text-white fixed top-0 w-full min-h-[86px]">
         <div className='flex gap-2'>
-          <button className='btn btn-circle btn-sm'>H</button>
+          <a href="/" className='btn btn-circle btn-sm'>H</a>
           <button className='btn btn-circle btn-sm' onClick={() => document.getElementById('instructions_modal').showModal()}>i</button>
         </div>
         <div className='w-full'>
-          <progress ref={bar} className="
-            w-full 
-            h-7 
-            border
-            border-white
-            rounded-full
-            bg-transparent
-            [&::-webkit-progress-bar]:rounded-full 
-            [&::-webkit-progress-value]:rounded-l-full 
-            [&::-webkit-progress-bar]:bg-transparent  
-            [&::-webkit-progress-value]:bg-info
-            [&::-moz-progress-bar]:bg-info
-            "
-            value={completedTags.length} max="6"></progress>
 
-          <p className="text-sm mr-3 text-right"><span className="font-bold">{completedTags.length}</span> out of <span className="font-bold">6</span> complete</p>
+          <div className="relative w-full h-7 bg-primary border border-white rounded-full overflow-hidden">
+            <div
+              ref={bar}
+              className="absolute top-0 left-0 h-full bg-info" // Can use the class transition-all to replace the gsap animation if wanted
+              style={{ width: `${percentComplete}%` }}
+            ></div>
+          </div>
+
+          <p className="mt-1 text mr-3 text-right"><span className="font-bold">{completedTags.length}</span> out of <span className="font-bold">{Object.keys(progressData).length}</span> complete</p>
         </div>
       </div>
 
