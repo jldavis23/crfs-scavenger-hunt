@@ -6,7 +6,7 @@ export const ProgressDataContext = createContext()
 export const ProgressDataProvider = ({ children }) => {
     const initialProgressData = {
         tag1: { scanned: false, completed: true, description: 'Look for the tag where the pink flowers are located.', hint: '' },
-        tag2: { scanned: false, completed: true, description: 'Look for the tag where the pink flowers are located.', hint: '' },
+        tag2: { scanned: false, completed: false, description: 'Look for the tag where the pink flowers are located.', hint: '' },
         tag3: { scanned: false, completed: true, description: 'Look for the tag where the pink flowers are located.', hint: '' },
         tag4: { scanned: false, completed: true, description: 'Look for the tag where the pink flowers are located.', hint: '' }
     }

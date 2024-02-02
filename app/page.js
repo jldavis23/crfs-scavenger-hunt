@@ -1,5 +1,5 @@
 'use client'
-import { useState, useContext, useEffect } from "react"
+import { useContext } from "react"
 import { ProgressDataContext } from "./context/ProgressDataContext"
 
 export default function Home() {
@@ -25,7 +25,8 @@ export default function Home() {
           ))
         ) : (
           <div className="bg-neutral text-center p-3 rounded-lg font-medium">
-            <p className="font-bold">You have found and completed all the tags!</p>
+            <p className="font-bold mb-2">You have found and completed all the tags!</p>
+            <a href="/huntcompleted" className="link">See certificate →</a>
           </div>
         )}
         
