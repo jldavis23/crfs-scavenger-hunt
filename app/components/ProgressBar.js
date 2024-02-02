@@ -98,10 +98,6 @@ export const ProgressBar = () => {
             </div>
             <div className="flex gap-3">
               <p className="text-4xl font-semibold text-primary flex items-center">5</p>
-              <p>If you get stuck, ask for a hint by clicking on the “hint” button</p>
-            </div>
-            <div className="flex gap-3">
-              <p className="text-4xl font-semibold text-primary flex items-center">6</p>
               <p>Once you’ve located and completed the activity for each tag, show your completed screen to the site manager to earn a small prize!</p>
             </div>
           </div>
