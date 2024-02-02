@@ -1,0 +1,9 @@
+.choiceCorrect {
+    @apply bg-success !important;
+    @apply border-success !important;
+}
+
+.choiceIncorrect {
+    @apply bg-error !important;
+    @apply border-error !important;
+}
