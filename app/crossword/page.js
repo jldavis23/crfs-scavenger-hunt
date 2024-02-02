@@ -6,7 +6,7 @@ import { Crossword } from '../components/Crossword.js'
 
 export default function CrosswordPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
-    const [puzzleCompleted, setPuzzleCompleted] = useState(false)
+    const [puzzleCompleted, setPuzzleCompleted] = useState(null)
 
     const puzzle = {
         crosswordRows: [

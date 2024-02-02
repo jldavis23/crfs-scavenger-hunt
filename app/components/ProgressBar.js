@@ -52,7 +52,7 @@ export const ProgressBar = () => {
 
   return (
     <section>
-      <div id="header" className="flex gap-3 p-4 bg-primary text-white fixed top-0 w-full min-h-[86px]">
+      <div className="flex gap-3 p-4 bg-primary text-white fixed top-0 w-full min-h-[86px] z-50">
         <div className='flex gap-2'>
           <a href="/" className='btn btn-circle btn-sm'>H</a>
           <button className='btn btn-circle btn-sm' onClick={() => document.getElementById('instructions_modal').showModal()}>i</button>

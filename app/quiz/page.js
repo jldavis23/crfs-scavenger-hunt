@@ -7,7 +7,7 @@ import { Quiz } from '../components/Quiz.js'
 
 export default function QuizPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
-    const [quizCompleted, setQuizCompleted] = useState(false)
+    const [quizCompleted, setQuizCompleted] = useState(null)
 
     const router = useRouter()
 
@@ -57,15 +57,15 @@ export default function QuizPage() {
     }, [quizCompleted])
 
     // If all the tags are complete, reroute the user to the Completed page
-    useEffect(() => {
-        if (quizCompleted) {
-            console.log('it is runnning')
-            if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
-                console.log('what is up')
-                router.push('/huntcompleted')
-            }
-        }
-    }, [progressData])
+    // useEffect(() => {
+    //     if (quizCompleted) {
+    //         console.log('it is runnning')
+    //         if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
+    //             console.log('what is up')
+    //             router.push('/huntcompleted')
+    //         }
+    //     }
+    // }, [progressData])
 
     return (
         <main className='p-5'>
