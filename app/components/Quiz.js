@@ -76,8 +76,8 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
 
                 <form id='quiz' onSubmit={submitOrTryAgain}>
                     {quiz.map((question, i) => (
-                        <div key={i} className="py-5">
-                            <p className="text-center text-xl font-medium">{i + 1}. {question.question}</p>
+                        <div key={i} className="p-5">
+                            <p className="text-center text-xl font-medium mb-3">{i + 1}. {question.question}</p>
 
                             <div className="flex flex-col gap-3">
                                 {question.choices.map((choice, j) => (
@@ -86,7 +86,7 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
                                         name={`question${i + 1}`}
                                         aria-label={choice.label}
                                         key={j}
-                                        className={`btn btn-outline rounded-full border ${showResults ? ( // if showResults is true, and the choice matches the user selected choice, apply the style of correct or incorrect based on choice.isCorrect
+                                        className={`btn btn-outline border-secondary rounded-full ${showResults ? ( // if showResults is true, and the choice matches the user selected choice, apply the style of correct or incorrect based on choice.isCorrect
                                             userAnswers[i].label === choice.label ? (
                                                 choice.isCorrect ? (
                                                     styles.choiceCorrect
@@ -94,7 +94,7 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
                                                     styles.choiceIncorrect
                                                 )
                                             ) : ''
-                                        ) : ''
+                                        ) : styles.quizChoice
                                             }`}
                                         disabled={showResults || quizCompleted}
                                         onChange={() => handleInputChange(i, choice)}
@@ -109,11 +109,12 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
                         <div className='my-4'>
                             <p className='text-center'>Score: {userScore}/{quiz.length}</p>
                             <p className='text-center'>Required: {quiz.length}/{quiz.length}</p>
-                            {quizCompleted ? <p className='text-center text-success'>You finished the quiz!</p> : <p className='text-center text-error'>Please try again. You need a perfect score to complete this task.</p>}
+                            {/* {quizCompleted ? <p className='text-center text-success mt-5'>You finished the quiz!</p> : <p className='text-center text-secondary text-lg mt-5'>Please try the quiz again</p>} */}
+                            <p className='text-center text-secondary text-lg mt-5'>{quizCompleted ? 'You finished the quiz!' : 'Please try the quiz again'}</p>
                         </div>
                     ) : ''}
 
-                    {quizCompleted ? '' : <button type='submit' className="btn rounded-full w-full" onClick={scrollTo}>{showResults ? 'Try Quiz Again' : 'Submit Quiz'}</button>}
+                    {quizCompleted ? '' : <button type='submit' className="btn btn-secondary rounded-full w-full mt-2" onClick={scrollTo}>{showResults ? 'RETRY QUIZ' : 'SUBMIT'}</button>}
                 </form>
             )}
         </section>

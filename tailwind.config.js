@@ -15,14 +15,28 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      }
     },
   },
   plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {
-        mytheme: {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          "primary": "#74795a",
+          "secondary": "#9e5d44",
+          "accent": "#dbdfd6",
+          "neutral": "#f4f4f4",
+          "base-100": "#ffffff",
+          "info": "#aebdf8",
+          "success": "#b6bab0",
+          "warning": "#ffffff",
+          "error": "#f4cccd",
+        },
+      },
+      {
+        myTheme: {
           "primary": "#74795a",
           "secondary": "#9e5d44",
           "accent": "#dbdfd6",

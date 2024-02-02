@@ -1,3 +1,9 @@
+.quizChoice:checked {
+    @apply bg-secondary !important;
+    @apply border-secondary !important;
+    @apply text-secondary-content !important;
+}
+
 .choiceCorrect {
     @apply bg-success !important;
     @apply border-success !important;
