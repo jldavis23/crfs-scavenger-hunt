@@ -71,6 +71,10 @@ export const ProgressBar = () => {
         </div>
       </div>
 
+
+      
+
+
       {/* Instructions Modal */}
       <dialog id="instructions_modal" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">

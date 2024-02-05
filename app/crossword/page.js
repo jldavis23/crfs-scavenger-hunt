@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { ProgressDataContext } from '../context/ProgressDataContext';
 
 import { Crossword } from '../components/Crossword.js'
+import { HuntCompleteModal } from '../components/HuntCompleteModal';
 
 export default function CrosswordPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
@@ -55,6 +56,15 @@ export default function CrosswordPage() {
         }))
     }, [puzzleCompleted])
 
+    // If all the tags are complete, show the Hunt Completed Modal
+    useEffect(() => {
+        if (puzzleCompleted) {
+            if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
+                document.getElementById('completed_modal').showModal()
+            }
+        }
+    }, [progressData])
+
     return (
         <main className="p-5">
             <h1>Information</h1>
@@ -63,7 +73,9 @@ export default function CrosswordPage() {
                 puzzle={puzzle}
                 puzzleCompleted={puzzleCompleted}
                 setPuzzleCompleted={setPuzzleCompleted}
-            ></Crossword>
+            />
+
+            <HuntCompleteModal/>
         </main>
     )
 }

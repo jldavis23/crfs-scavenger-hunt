@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { ProgressDataContext } from '../context/ProgressDataContext'
 
 import { Quiz } from '../components/Quiz.js'
+import { HuntCompleteModal } from '../components/HuntCompleteModal'
 
 export default function QuizPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
@@ -56,16 +57,14 @@ export default function QuizPage() {
         }))
     }, [quizCompleted])
 
-    // If all the tags are complete, reroute the user to the Completed page
-    // useEffect(() => {
-    //     if (quizCompleted) {
-    //         console.log('it is runnning')
-    //         if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
-    //             console.log('what is up')
-    //             router.push('/huntcompleted')
-    //         }
-    //     }
-    // }, [progressData])
+    // If all the tags are complete, show the Hunt Completed Modal
+    useEffect(() => {
+        if (quizCompleted) {
+            if (Object.keys(progressData).every(tag => progressData[tag].completed === true)) {
+                document.getElementById('completed_modal').showModal()
+            }
+        }
+    }, [progressData])
 
     return (
         <main className='p-5'>
@@ -75,7 +74,9 @@ export default function QuizPage() {
                 quiz={quiz}
                 quizCompleted={quizCompleted}
                 setQuizCompleted={setQuizCompleted}
-            ></Quiz>
+            />
+
+            <HuntCompleteModal/>
         </main>
     )
 }
