@@ -8,15 +8,14 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  
 
   return (
     <html lang="en" data-theme="light">
 
       <ProgressDataProvider>
         <body className='font-monterrat'>
-          <div className='h-[86px]'></div>
-          <ProgressBar/>
+            <div className='h-[86px]'></div>
+            <ProgressBar/>
           {children}
         </body>
       </ProgressDataProvider>

@@ -1,10 +1,10 @@
 'use client'
 import { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { ProgressDataContext } from '../context/ProgressDataContext'
+import { ProgressDataContext } from '../../context/ProgressDataContext'
 
-import { Quiz } from '../components/Quiz.js'
-import { HuntCompleteModal } from '../components/HuntCompleteModal'
+import { Quiz } from '../../components/Quiz.js'
+import { HuntCompleteModal } from '../../components/HuntCompleteModal'
 
 export default function QuizPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)

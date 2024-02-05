@@ -1,9 +1,9 @@
 'use client'
 import { useContext, useState, useEffect } from 'react';
-import { ProgressDataContext } from '../context/ProgressDataContext';
+import { ProgressDataContext } from '../../context/ProgressDataContext';
 
-import { Crossword } from '../components/Crossword.js'
-import { HuntCompleteModal } from '../components/HuntCompleteModal';
+import { Crossword } from '../../components/Crossword.js'
+import { HuntCompleteModal } from '../../components/HuntCompleteModal';
 
 export default function CrosswordPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)

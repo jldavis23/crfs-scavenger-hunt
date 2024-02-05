@@ -1,6 +1,6 @@
 'use client'
 import { useContext, useEffect, useState } from 'react';
-import { ProgressDataContext } from '../context/ProgressDataContext';
+import { ProgressDataContext } from '../../context/ProgressDataContext';
 import confetti from 'canvas-confetti'
 
 export default function CompletedPage() {
