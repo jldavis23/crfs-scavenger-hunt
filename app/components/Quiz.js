@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Quiz.module.css';
 import confetti from 'canvas-confetti'
 
@@ -8,6 +8,16 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
     const [userAnswers, setUserAnswers] = useState({})
     const [showResults, setShowResults] = useState(false)
     const [userScore, setUserScore] = useState(0)
+
+    useEffect(() => {
+        quiz.forEach((question, i) => {
+            setUserAnswers(prevAnswers => ({
+                ...prevAnswers,
+                [i]: null
+            }))
+        })
+    }, [])
+
 
     // FUNCTIONS
 
@@ -47,23 +57,28 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
 
     // Scrolls to specific parts of the page when the submit quiz/try again button is clicked
     const scrollTo = () => {
-        if (showResults) {
-            // if the results are showing (the button says 'try again') scroll to top of quiz when clicked
-            const quizSection = document.getElementById('quiz');
+        // if all the questions have been answered...
+        if (Object.keys(userAnswers).every((answer) => userAnswers[answer] !== null)) {
+            if (showResults) {
+                // if the results are showing (the button says 'try again') scroll to top of quiz when clicked
+                const quizSection = document.getElementById('quiz');
 
-            setTimeout(() => {
-                if (quizSection) {
-                    quizSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 10)
+                setTimeout(() => {
+                    if (quizSection) {
+                        quizSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 10)
+            } else {
+                // if the results are not showing (the button says 'submit quiz') scroll to the bottom of the page to results when clicked
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: document.documentElement.scrollHeight,
+                        behavior: 'smooth',
+                    })
+                }, 10)
+            }
         } else {
-            // if the results are not showing (the button says 'submit quiz') scroll to the bottom of the page to results when clicked
-            setTimeout(() => {
-                window.scrollTo({
-                    top: document.documentElement.scrollHeight,
-                    behavior: 'smooth',
-                })
-            }, 10)
+            alert('Please answer all questions before submitting.');
         }
     }
 
@@ -99,7 +114,7 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
                                                 }`}
                                             disabled={showResults || quizCompleted}
                                             onChange={() => handleInputChange(i, choice)}
-                                            required
+                                        required
                                         />
                                     ))}
                                 </div>

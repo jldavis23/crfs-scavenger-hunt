@@ -1,7 +1,7 @@
 .quizChoice:checked {
-    @apply bg-secondary !important;
-    @apply border-secondary !important;
-    @apply text-secondary-content !important;
+    @apply bg-info !important;
+    @apply border-info !important;
+    @apply text-info-content !important;
 }
 
 .choiceCorrect {
