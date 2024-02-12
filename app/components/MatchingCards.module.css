@@ -1,0 +1,26 @@
+.scene {
+  perspective: 600px;
+  height: 150px;
+  display: inline-block;
+}
+
+.card {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.cardFace {
+  position: absolute;
+  backface-visibility: hidden;
+  border: 1px solid black;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
