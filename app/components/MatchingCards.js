@@ -7,13 +7,15 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     const [selectedCards, setSelectedCards] = useState([])
 
     useEffect(() => {
-        setSelectedCards(cards.filter(card => card.isFlipped))
+        setSelectedCards(cards.filter(card => card.isFlipped && !card.isMatched))
     }, [cards])
 
     useEffect(() => {
         if (selectedCards.length > 1) {
             if (selectedCards[0].match === selectedCards[1].id) {
-                console.log('MATCH!')
+                const updatedCards = cards.map(card => (card.id === selectedCards[0].id || card.id === selectedCards[1].id) ? {...card, isMatched: true} : card)
+
+                setCards(updatedCards)
             } else {
                 console.log('no match...')
             }
@@ -21,23 +23,24 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     }, [selectedCards])
 
     const handleCardFlip = (card) => {
-        if (card.isFlipped) {
-            const updatedCards = cards.map(c => c.id === card.id ? {...c, isFlipped: !c.isFlipped} : c)
-            setCards(updatedCards)
-        } else {
-            if (selectedCards.length < 2) {
+        if (!card.isMatched) {
+            if (card.isFlipped) {
                 const updatedCards = cards.map(c => c.id === card.id ? {...c, isFlipped: !c.isFlipped} : c)
                 setCards(updatedCards)
-            } 
+            } else {
+                if (selectedCards.length < 2) {
+                    const updatedCards = cards.map(c => c.id === card.id ? {...c, isFlipped: !c.isFlipped} : c)
+                    setCards(updatedCards)
+                } 
+            }
         }
-        
     }
 
     return (
         <section className='flex flex-wrap justify-center gap-3'>
             {cards.map(card => (
                 <div key={card.id} className={`${styles.scene}`}>
-                    <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''}`} onClick={() => handleCardFlip(card)}>
+                    <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
                         <figure className={`${styles.cardFace} ${styles.front}`}>
                             {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
                         </figure>

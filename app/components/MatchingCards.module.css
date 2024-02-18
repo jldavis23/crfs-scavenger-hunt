@@ -12,10 +12,16 @@
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  border-radius: 8px;
+  border: 3px solid #aebdf8;
 }
 
 .card.flipped {
   transform: rotateY(180deg);
+}
+
+.card.matched {
+  border: 3px solid green;
 }
 
 .cardFace {
@@ -23,8 +29,6 @@
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
-  border-radius: 8px;
-  border: 3px solid #aebdf8;
 }
 
 .front {
