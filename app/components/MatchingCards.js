@@ -13,11 +13,18 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     useEffect(() => {
         if (selectedCards.length > 1) {
             if (selectedCards[0].match === selectedCards[1].id) {
-                const updatedCards = cards.map(card => (card.id === selectedCards[0].id || card.id === selectedCards[1].id) ? {...card, isMatched: true} : card)
+                setTimeout(() => {
+                    const updatedCards = cards.map(card => (card.id === selectedCards[0].id || card.id === selectedCards[1].id) ? { ...card, isMatched: true } : card)
 
-                setCards(updatedCards)
+                    setCards(updatedCards)
+                }, 1000)
+
             } else {
-                console.log('no match...')
+                setTimeout(() => {
+                    const updatedCards = cards.map(card => (card.isFlipped && !card.Matched) ? { ...card, isFlipped: false } : card)
+                    setCards(updatedCards)
+                }, 1000)
+
             }
         }
     }, [selectedCards])
@@ -25,13 +32,13 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     const handleCardFlip = (card) => {
         if (!card.isMatched) {
             if (card.isFlipped) {
-                const updatedCards = cards.map(c => c.id === card.id ? {...c, isFlipped: !c.isFlipped} : c)
+                const updatedCards = cards.map(c => c.id === card.id ? { ...c, isFlipped: !c.isFlipped } : c)
                 setCards(updatedCards)
             } else {
                 if (selectedCards.length < 2) {
-                    const updatedCards = cards.map(c => c.id === card.id ? {...c, isFlipped: !c.isFlipped} : c)
+                    const updatedCards = cards.map(c => c.id === card.id ? { ...c, isFlipped: !c.isFlipped } : c)
                     setCards(updatedCards)
-                } 
+                }
             }
         }
     }
@@ -46,8 +53,8 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
                         </figure>
 
                         <div className={`${styles.cardFace} ${styles.back}`}>
-                            {card.isImage ? <img src={card.imagePath} alt="" className='rounded' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
-                            
+                            {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
+
                         </div>
                     </div>
                 </div>
