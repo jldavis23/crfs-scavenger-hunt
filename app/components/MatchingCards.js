@@ -6,6 +6,22 @@ import confetti from 'canvas-confetti'
 export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingCompleted }) => {
     const [selectedCards, setSelectedCards] = useState([])
 
+    // Shuffle the cards array on first render
+    useEffect(() => {
+        let arr = [...cards]
+
+        let currIndex = arr.length, randomIndex
+
+        while (currIndex > 0) {
+            randomIndex = Math.floor(Math.random() * currIndex)
+            currIndex--
+
+            [arr[currIndex], arr[randomIndex]] = [arr[randomIndex], arr[currIndex]]
+        }
+
+        setCards(arr)
+    }, [])
+
     useEffect(() => {
         setSelectedCards(cards.filter(card => card.isFlipped && !card.isMatched))
     }, [cards])
@@ -44,7 +60,7 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     }
 
     return (
-        <section className='flex flex-wrap justify-center gap-3'>
+        <section className='flex flex-wrap justify-center gap-3 border border-info rounded-xl p-2'>
             {cards.map(card => (
                 <div key={card.id} className={`${styles.scene}`}>
                     <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
