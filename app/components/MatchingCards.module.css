@@ -31,7 +31,7 @@
   position: absolute;
   backface-visibility: hidden;
   border-radius: 8px;
-  background-color: grey;
+  background-color: #dbdfd6;
 }
 
 .front {

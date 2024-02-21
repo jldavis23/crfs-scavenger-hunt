@@ -22,10 +22,19 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
         setCards(arr)
     }, [])
 
+    // Run this every time the cards array is updated
     useEffect(() => {
+        // Set the selectedCards array to the cards that are currently flipped but not yet matched
         setSelectedCards(cards.filter(card => card.isFlipped && !card.isMatched))
+
+        // Check if every card has been matched
+        if (cards.every(card => card.isMatched)) {
+            setMatchingCompleted(true)
+            confetti()
+        }
     }, [cards])
 
+    // Run this code every time the selectedCards array is updated
     useEffect(() => {
         if (selectedCards.length > 1) {
             if (selectedCards[0].match === selectedCards[1].id) {
@@ -60,21 +69,40 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     }
 
     return (
-        <section className='flex flex-wrap justify-center gap-3 border border-info rounded-xl p-2'>
-            {cards.map(card => (
-                <div key={card.id} className={`${styles.scene}`}>
-                    <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
-                        <figure className={`${styles.cardFace} ${styles.front}`}>
-                            {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
-                        </figure>
+        <section className='border border-info rounded-xl p-2'>
+            {matchingCompleted === true ? (
+                <h2 className="font-semibold text-2xl m-8 text-center text-success">Game Complete ✓</h2>
+            ) : (
+                matchingCompleted === false ? (
+                    <div>
+                        <h2 className="font-semibold text-2xl m-8 text-center">Play the Matching Game</h2>
 
-                        <div className={`${styles.cardFace} ${styles.back}`}>
-                            {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
+                        <div className='flex flex-wrap justify-center gap-3'>
+                            {cards.map(card => (
+                                <div key={card.id} className={`${styles.scene}`}>
+                                    <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
+                                        <figure className={`${styles.cardFace} ${styles.front}`}>
+                                            {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
+                                        </figure>
 
+                                        <div className={`${styles.cardFace} ${styles.back}`}>
+                                            {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
-            ))}
+
+                ) : (
+                    <div className='text-center'>
+                        <span className="loading loading-spinner loading-lg text-primary"></span>
+                    </div>
+                )
+            )}
+
+
         </section>
 
     )
