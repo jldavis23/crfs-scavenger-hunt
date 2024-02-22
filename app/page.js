@@ -35,13 +35,17 @@ export default function Home() {
               //   <p className="font-bold mt-4 text-sm text-[#4b4f39] transition-all">{progressData[tag].hint}</p>
               // </div>
 
+              //
 
-              <div key={i} className="collapse bg-accent rounded-lg font-medium ">
+              <div key={i} className="collapse bg-accent rounded-lg font-medium">
                 <input type="checkbox" />
-                <div className="collapse-title flex items-center gap-3 pe-4">
-                  <figure className="w-1/5"><img src="/images/placeholder-icon.png" alt="" /></figure>
-                  <p>{progressData[tag].description}</p>
-                  <button className="btn btn-secondary btn-sm rounded-full">Hint</button>
+                <div className="collapse-title flex items-center gap-3 pe-4 justify-between"> 
+                  <div className="flex items-center gap-3">
+                    <img className="w-12" src={progressData[tag].icon} alt="" />
+                    <p>{progressData[tag].description}</p>
+                  </div>
+                  
+                  <button className="btn btn-secondary btn-sm rounded-full">HINT</button>
                 </div>
                 <div className="collapse-content">
                   <p className="font-bold mt-4 text-[#4b4f39]">{progressData[tag].hint}</p>
@@ -70,9 +74,12 @@ export default function Home() {
         {completedTags ? (
           completedTags.length > 0 ? (
             completedTags.map((tag, i) => (
-              <div key={i} className="flex items-center gap-3 bg-[#7d8376] p-3 rounded-lg font-medium">
-                <figure className="w-1/5"><img src="/images/placeholder-icon.png" alt="" /></figure>
-                <p>{progressData[tag].description}</p>
+              <div key={i} className="flex items-center justify-between gap-3 bg-[#7d8376] p-3 rounded-lg font-medium">
+                <div className="flex items-center gap-3">
+                  <img className="w-12" src={progressData[tag].icon} alt="" />
+                  <p>{progressData[tag].description}</p>
+                </div>
+                
                 <p className="text-3xl">✓</p>
               </div>
             ))
