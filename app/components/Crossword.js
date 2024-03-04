@@ -31,19 +31,19 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                     <h2 className="font-semibold text-2xl m-8 text-center">Complete the Crossword Puzzle</h2>,
 
                     <div className="flex flex-col items-center gap-10">
-                        <div>
+                        <div className='max-w-96'>
                             {puzzle.crosswordRows.map((row, i) => (
-                                <div key={i} className="flex">
+                                <div key={i} className='grid' style={{ gridTemplateColumns: `repeat(${row.length}, minmax(0, 1fr))` }}>
                                     {row.map((cell, j) =>
                                         cell !== '' ? (
                                             <div className="relative" key={j}>
                                                 <input
                                                     type="text"
-                                                    className={`w-10 h-10 flex justify-center items-center border border-neutral text-center rounded-none ${userAnswers[i][j] === solutions[i][j] ? 'bg-success' : ""}`}
+                                                    className={`w-full flex justify-center items-center border border-black text-center rounded-none ${userAnswers[i][j] === solutions[i][j] ? 'bg-success' : ""}`}
                                                     maxLength={1}
                                                     onChange={e => handleInputChange(i, j, e)}
                                                     value={puzzleCompleted ? solutions[i][j] : userAnswers[i][j]}
-                                                    
+
                                                 />
                                                 {puzzle.wordStarts[i][j] ? (
                                                     <span className="absolute top-1 left-1 text-xs leading-none">{puzzle.wordStarts[i][j]}</span>
@@ -51,7 +51,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                                             </div>
                                         ) : (
                                             <div
-                                                className="w-10 h-10 bg-neutral"
+                                                className=" bg-black"
                                                 key={j}>
                                             </div>
                                         )
@@ -85,5 +85,6 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
 
 
         </section>
+
     )
 }
