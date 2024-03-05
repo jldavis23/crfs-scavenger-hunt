@@ -79,9 +79,15 @@ export default function AstronomyPage() {
 
     return (
         <main className="p-5">
-            <h1>Information</h1>
+            <h1 className='font-bold text-[35px]'>Astronomy</h1>
 
-            <Crossword
+            <h2 className='font-bold text-[30px]'></h2>
+
+            <p className='text-[15px]'></p>
+
+            <h3 className='font-bold text-[23px]'></h3>
+
+            <Crossword 
                 puzzle={puzzle}
                 puzzleCompleted={puzzleCompleted}
                 setPuzzleCompleted={setPuzzleCompleted}

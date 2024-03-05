@@ -27,7 +27,7 @@ export const ProgressBar = () => {
     <section>
       <div className="flex gap-3 p-4 fixed top-0 w-full min-h-[86px] z-50 bg-white shadow">
         <div className='flex gap-2'>
-          <a href="/" className='btn btn-circle'><img src="images/SP_Home_Icon.svg" alt="Home"/></a>
+          <a href="/" className='btn btn-circle'><img src="images/icons/SP_Home_Icon.svg" alt="Home"/></a>
           {/* <button className='btn btn-circle btn-sm' onClick={() => document.getElementById('instructions_modal').showModal()}>i</button> */}
         </div>
         <div className='w-full'>

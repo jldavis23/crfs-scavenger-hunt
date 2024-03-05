@@ -31,8 +31,8 @@ export const Instructions = ({ setProgressData }) => {
     return (
         <div className='bg-secondary h-screen w-screen fixed top-0 left-0 p-5 flex flex-col justify-between z-50'>
             <div className='flex gap-5 justify-between'>
-                <figure><img src='/images/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
-                <figure><img src='/images/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
+                <figure><img src='/images/logos/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
+                <figure><img src='/images/logos/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
             </div>
 
             <div className="text-white flex flex-col gap-4">

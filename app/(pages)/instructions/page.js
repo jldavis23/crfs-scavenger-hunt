@@ -38,8 +38,8 @@ export default function InstructionsPage() {
     return (
         <div className="bg-primary p-5 flex flex-col gap-10 text-white">
             <div className='flex gap-5 justify-between'>
-                <figure><img src='/images/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
-                <figure><img src='/images/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
+                <figure><img src='/images/logos/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
+                <figure><img src='/images/logos/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
             </div>
 
             <div className="flex flex-col gap-4">
