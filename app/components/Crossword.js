@@ -31,7 +31,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                     <h2 className="font-semibold text-2xl m-8 text-center">Complete the Crossword Puzzle</h2>,
 
                     <div className="flex flex-col items-center gap-10">
-                        <div>
+                        <div className=''>
                             {puzzle.crosswordRows.map((row, i) => (
                                 <div key={i} className="flex">
                                     {row.map((cell, j) =>
@@ -39,7 +39,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                                             <div className="relative" key={j}>
                                                 <input
                                                     type="text"
-                                                    className={`w-8 h-8 flex justify-center items-center border border-black text-center rounded-none ${userAnswers[i][j] === solutions[i][j] ? 'bg-success' : ""}`}
+                                                    className={`w-9 h-9 flex justify-center items-center border border-black text-center rounded-none ${userAnswers[i][j] === solutions[i][j] ? 'bg-success' : ""}`}
                                                     maxLength={1}
                                                     onChange={e => handleInputChange(i, j, e)}
                                                     value={puzzleCompleted ? solutions[i][j] : userAnswers[i][j]}
@@ -51,7 +51,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                                             </div>
                                         ) : (
                                             <div
-                                                className="w-8 h-8 bg-black"
+                                                className="w-9 h-9 bg-black"
                                                 key={j}>
                                             </div>
                                         )
