@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-export default function InstructionsPage({ setProgressData }) {
+export default function InstructionsPage() {
     const instructions = [
         {
             text: 'Search inside the field station for small white tags/chips/discs attached to the walls.',
@@ -36,7 +36,7 @@ export default function InstructionsPage({ setProgressData }) {
     ]
 
     return (
-        <div className="bg-neutral p-5 flex flex-col gap-10">
+        <div className="bg-primary p-5 flex flex-col gap-10 text-white">
             <div className='flex gap-5 justify-between'>
                 <figure><img src='/images/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
                 <figure><img src='/images/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
@@ -49,7 +49,7 @@ export default function InstructionsPage({ setProgressData }) {
                     {instructions.map((step, i) => (
                         <div key={i}>
                             <div className="flex gap-3 mb-3">
-                                <p className="text-4xl font-semibold text-accent flex items-center">{i + 1}</p>
+                                <p className="text-4xl font-semibold text-[#BCCE95] flex items-center">{i + 1}</p>
                                 <p className="text-lg">{step.text}</p>
                             </div>
 
@@ -58,7 +58,7 @@ export default function InstructionsPage({ setProgressData }) {
                     ))}
                 </div>
 
-                <button className="btn btn-primary border border-white text-white">START</button>
+                <a href="/" className="btn btn-accent text-accent-content border border-white mb-10">START</a>
                 <p className="text-center">© UVU DWDD 490R | 2024</p>
             </div>
 

@@ -23,33 +23,6 @@ export const ProgressBar = () => {
   }, [percentComplete])
 
 
-
-
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const instructions = [
-    'Connect to the wifi: Wilderness, Password: CRFS',
-    'Search the station for signs and scan the located chip',
-    'Learn about Captiol Reef, do the activity, and earn a special prize at the end'
-  ]
-
-  const handleNext = () => {
-    setCurrentIndex(prevIndex => {
-      return prevIndex + 1
-    })
-  }
-
-  const handleBack = () => {
-    setCurrentIndex(prevIndex => {
-      return prevIndex - 1
-    })
-  }
-
-  const handleStart = () => {
-    document.getElementById('modal1').close()
-    setCurrentIndex(0)
-  }
-
   return (
     <section>
       <div className="flex gap-3 p-4 fixed top-0 w-full min-h-[86px] z-50 bg-white shadow">
