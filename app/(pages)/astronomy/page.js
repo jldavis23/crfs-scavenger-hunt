@@ -5,7 +5,7 @@ import { ProgressDataContext } from '../../context/ProgressDataContext';
 import { Crossword } from '../../components/Crossword.js'
 import { HuntCompleteModal } from '../../components/HuntCompleteModal';
 
-export default function CrosswordPage() {
+export default function AstronomyPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [puzzleCompleted, setPuzzleCompleted] = useState(null)
 

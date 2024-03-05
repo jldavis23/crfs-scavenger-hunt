@@ -5,7 +5,7 @@ import { ProgressDataContext } from '../../context/ProgressDataContext';
 import { MatchingCards } from '@/app/components/MatchingCards';
 import { HuntCompleteModal } from '../../components/HuntCompleteModal';
 
-export default function CardsPage() {
+export default function GeologyPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [matchingCompleted, setMatchingCompleted] = useState(null)
 

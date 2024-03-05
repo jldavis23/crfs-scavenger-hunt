@@ -6,7 +6,7 @@ import { ProgressDataContext } from '../../context/ProgressDataContext'
 import { Quiz } from '../../components/Quiz.js'
 import { HuntCompleteModal } from '../../components/HuntCompleteModal'
 
-export default function QuizPage() {
+export default function HistoryPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [quizCompleted, setQuizCompleted] = useState(null)
 
