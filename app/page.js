@@ -19,7 +19,7 @@ export default function Home() {
     <main className="p-5">
 
       {/* UNCOMPLETED TAGS */}
-      <h2 className="text-2xl font-bold">To Find</h2>
+      <h2 className="text-[35px] font-bold">To Find</h2>
 
       <div className="mt-3 flex flex-col gap-4">
         {uncompletedTags ? (
@@ -42,10 +42,10 @@ export default function Home() {
                 <div className="collapse-title flex items-center gap-3 pe-4 justify-between"> 
                   <div className="flex items-center gap-3">
                     <img className="w-12" src={progressData[tag].icon} alt="" />
-                    <p>{progressData[tag].description}</p>
+                    <p className="text-[15px]">{progressData[tag].description}</p>
                   </div>
                   
-                  <button className="btn btn-secondary btn-sm rounded-full">HINT</button>
+                  <button className="btn btn-secondary rounded-full">HINT</button>
                 </div>
                 <div className="collapse-content">
                   <p className="font-bold mt-4 text-[#4b4f39]">{progressData[tag].hint}</p>
@@ -68,7 +68,7 @@ export default function Home() {
       </div>
 
       {/* COMPLETED TAGS */}
-      <h2 className="text-2xl font-bold my-5">Completed</h2>
+      <h2 className="text-[35px] font-bold my-5">Completed</h2>
 
       <div className="mt-3 flex flex-col gap-4">
         {completedTags ? (
@@ -77,15 +77,15 @@ export default function Home() {
               <div key={i} className="flex items-center justify-between gap-3 bg-[#7d8376] p-3 rounded-lg font-medium">
                 <div className="flex items-center gap-3">
                   <img className="w-12" src={progressData[tag].icon} alt="" />
-                  <p>{progressData[tag].description}</p>
+                  <p className="text-[15px]" >{progressData[tag].description}</p>
                 </div>
                 
-                <p className="text-3xl">✓</p>
+                {/*   */}
               </div>
             ))
           ) : (
-            <div className="bg-neutral text-center p-3 rounded-lg font-medium">
-              <p className="font-bold">0 Completed</p>
+            <div className="bg-neutral text-center p-4 rounded-lg font-medium">
+              <p className="font-bold mb-2">0 Completed</p>
               <p>Search the field station for the white tags to get started</p>
             </div>
           )

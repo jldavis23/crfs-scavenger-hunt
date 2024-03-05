@@ -52,14 +52,14 @@ export const ProgressBar = () => {
 
   return (
     <section>
-      <div className="flex gap-3 p-4 bg-primary text-white fixed top-0 w-full min-h-[86px] z-50">
+      <div className="flex gap-3 p-4 fixed top-0 w-full min-h-[86px] z-50 bg-white shadow">
         <div className='flex gap-2'>
-          <a href="/" className='btn btn-circle btn-sm'>H</a>
-          <button className='btn btn-circle btn-sm' onClick={() => document.getElementById('instructions_modal').showModal()}>i</button>
+          <a href="/" className='btn btn-circle'><img src="images/SP_Home_Icon.svg" alt="Home"/></a>
+          {/* <button className='btn btn-circle btn-sm' onClick={() => document.getElementById('instructions_modal').showModal()}>i</button> */}
         </div>
         <div className='w-full'>
 
-          <div className="relative w-full h-7 bg-primary border border-white rounded-full overflow-hidden">
+          <div className="relative w-full h-7 border border-black rounded-full overflow-hidden">
             <div
               ref={bar}
               className="absolute top-0 left-0 h-full bg-info" // Can use the class transition-all to replace the gsap animation if wanted
@@ -67,7 +67,15 @@ export const ProgressBar = () => {
             ></div>
           </div>
 
-          <p className="mt-1 text mr-3 text-right"><span className="font-bold">{completedTags.length}</span> out of <span className="font-bold">{Object.keys(progressData).length}</span> complete</p>
+          <div className='flex justify-end mt-2 items-center'>
+            <p className="mr-2 text-[15px]"><span className="font-bold">{completedTags.length}</span> out of <span className="font-bold">{Object.keys(progressData).length}</span> complete</p>
+
+            <a href="/instructions">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#808080" viewBox="0 0 256 256"><path d="M140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180ZM128,72c-22.06,0-40,16.15-40,36v4a8,8,0,0,0,16,0v-4c0-11,10.77-20,24-20s24,9,24,20-10.77,20-24,20a8,8,0,0,0-8,8v8a8,8,0,0,0,16,0v-.72c18.24-3.35,32-17.9,32-35.28C168,88.15,150.06,72,128,72Zm104,56A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg>
+            </a>
+            
+          </div>
+          
         </div>
       </div>
 
