@@ -1,4 +1,5 @@
 'use client'
+// TAG 4
 import { useContext, useState, useEffect } from 'react';
 import { ProgressDataContext } from '../../context/ProgressDataContext';
 
@@ -57,14 +58,14 @@ export default function AstronomyPage() {
 
     useEffect(() => {
         if (progressData) {
-            setPuzzleCompleted(progressData.tag1.completed)
+            setPuzzleCompleted(progressData.tag4.completed)
         }
     }, [progressData])
 
     useEffect(() => {
         setProgressData(prevState => ({
             ...prevState,
-            tag1: { ...prevState.tag1, completed: puzzleCompleted }
+            tag4: { ...prevState.tag4, completed: puzzleCompleted } 
         }))
     }, [puzzleCompleted])
 
@@ -78,14 +79,28 @@ export default function AstronomyPage() {
     }, [progressData])
 
     return (
-        <main className="p-5">
+        <main className="p-5 flex flex-col gap-5">
             <h1 className='font-bold text-[35px]'>Astronomy</h1>
 
-            <h2 className='font-bold text-[30px]'></h2>
+            <img src="images/taskImages/SP_Astro_Dark_Sky.webp" alt="the milky way behind a mountain" className='rounded-3xl'/>
 
-            <p className='text-[15px]'></p>
+            <h2 className='font-bold text-[30px]'>Dark Sky</h2>
 
-            <h3 className='font-bold text-[23px]'></h3>
+            <p className='text-[15px]'>Our visitors are treated with wonderfully dark skies that can be enjoyed with the naked eye, and also with our telescopes, including a 12-inch Dobsonian. In 2015, Capitol Reef National Park was designated as an international dark sky park.  It offers excellent night-sky viewing.</p>
+
+            <img src="images/taskImages/SP_Astro_Light_Pollution.webp" alt="the Capitol Reef Field Station under a dark sky" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Light Pollution</h2>
+
+            <p className='text-[15px]'>At the field station, we strive to minimize light pollution. We have limited, low-wattage, downward-facing external lighting. All windows are equipped with blinds that are closed at night to reduce the amount of light that leaks from buildings into the environment. </p>
+
+            <img src="images/taskImages/SP_Astro_Night.webp" alt="the milky way as seen from Capitol Reef" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>The Night Sky</h2>
+
+            <p className='text-[15px]'>With much of its landscape above 7,000 feet, low smog and light pollution, wide open fields, and small towns separated by stretches of open highway, Capitol Reef National Park and the surrounding area offers one of the best places in the country to enjoy the night sky, learn and identify many of the constellations, and use binoculars and telescopes to study different types of astronomical objects.</p>
+
+            <h3 className='font-bold text-[23px] text-center mt-6'>Complete the Crossword Puzzle</h3>
 
             <Crossword 
                 puzzle={puzzle}

@@ -1,4 +1,5 @@
 'use client'
+// TAG 1
 import { useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { ProgressDataContext } from '../../context/ProgressDataContext'
@@ -42,10 +43,10 @@ export default function SustainabilityPage() {
         }
     ]
 
-    // Set quizCompleted to the current value of tag2.completed
+    // Set quizCompleted to the current value of tag1.completed
     useEffect(() => {
         if (progressData) {
-            setQuizCompleted(progressData.tag2.completed)
+            setQuizCompleted(progressData.tag1.completed)
         }
     }, [progressData])
 
@@ -53,7 +54,7 @@ export default function SustainabilityPage() {
     useEffect(() => {
         setProgressData(prevState => ({
             ...prevState,
-            tag2: { ...prevState.tag2, completed: quizCompleted }
+            tag1: { ...prevState.tag1, completed: quizCompleted }
         }))
     }, [quizCompleted])
 

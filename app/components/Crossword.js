@@ -28,8 +28,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                 <h2 className="font-semibold text-2xl m-8 text-center text-success">Puzzle Complete ✓</h2>
             ) : (
                 puzzleCompleted === false ? (
-                    <div>
-                        <h2 className="font-semibold text-2xl m-8 text-center">Complete the Crossword Puzzle</h2>
+                    
 
                         <div className="flex flex-col items-center gap-10">
                             <div className=''>
@@ -77,7 +76,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
                             </div>
 
                         </div>
-                    </div>
+                   
                 ) : (
                     <div className='text-center'>
                         <span className="loading loading-spinner loading-lg text-primary"></span>
