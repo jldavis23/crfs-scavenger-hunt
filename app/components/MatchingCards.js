@@ -71,29 +71,29 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     return (
         <section className='border border-info rounded-xl p-2'>
             {matchingCompleted === true ? (
-                <h2 className="font-semibold text-2xl m-8 text-center text-success">Game Complete ✓</h2>
+                <div className='flex flex-col items-center p-8 gap-8'>
+                    <h3 className="font-semibold text-2xl text-success">Game Complete ✓</h3>
+                    <a href="/" className='btn'>BACK TO HOME</a>
+                </div>
             ) : (
                 matchingCompleted === false ? (
-                    <div>
-                        <h2 className="font-semibold text-2xl m-8 text-center">Play the Matching Game</h2>
+                    <div className='flex flex-wrap justify-center gap-3'>
+                        {cards.map(card => (
+                            <div key={card.id} className={`${styles.scene}`}>
+                                <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
+                                    <figure className={`${styles.cardFace} ${styles.front}`}>
+                                        {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
+                                    </figure>
 
-                        <div className='flex flex-wrap justify-center gap-3'>
-                            {cards.map(card => (
-                                <div key={card.id} className={`${styles.scene}`}>
-                                    <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
-                                        <figure className={`${styles.cardFace} ${styles.front}`}>
-                                            {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
-                                        </figure>
+                                    <div className={`${styles.cardFace} ${styles.back}`}>
+                                        {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
 
-                                        <div className={`${styles.cardFace} ${styles.back}`}>
-                                            {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
-
-                                        </div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
+
 
                 ) : (
                     <div className='text-center'>
