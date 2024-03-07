@@ -151,7 +151,7 @@ export default function GeologyPage() {
 
             <p className='text-[15px]'>The name Waterpocket Fold comes from the many water pockets, depressions which often form in the sandstone layers, that fill with rainwater and snowmelt. For the early explorers, the waterpockets were essential to their travel, since they were in a land that was new to them. Fold refers to the eroded monocline, a fold or wrinkle in the earth’s crust. The Waterpocket Fold is so large that it can be seen from the International Space Station!</p>
 
-            <img src="images/taskImages/SP_Geo_Uplift.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Geo_Erosion.webp" alt="" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Erosion</h2>
 

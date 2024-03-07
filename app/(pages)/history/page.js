@@ -1,7 +1,6 @@
 'use client'
 // TAG 2
 import { useContext, useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { ProgressDataContext } from '../../context/ProgressDataContext'
 
 import { Quiz } from '../../components/Quiz.js'
@@ -11,34 +10,31 @@ export default function HistoryPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [quizCompleted, setQuizCompleted] = useState(null)
 
-    const router = useRouter()
-
     const quiz = [
         {
-            question: 'What is the first color of the rainbow?',
+            question: 'What year was the expedition that came near Capitol Reef?',
             choices: [
-                { label: 'red', isCorrect: true },
-                { label: 'blue', isCorrect: false },
-                { label: 'green', isCorrect: false },
-                { label: 'orange', isCorrect: false }
+                { label: '1776', isCorrect: true },
+                { label: '1780', isCorrect: false },
+                { label: '1783', isCorrect: false },
+                { label: '1775', isCorrect: false }
             ]
         },
         {
-            question: 'What is 2+2?',
+            question: 'What did the orchards consist of?',
             choices: [
-                { label: '4', isCorrect: true },
-                { label: '6', isCorrect: false },
-                { label: '3', isCorrect: false },
-                { label: '2', isCorrect: false }
+                { label: 'apples, peaches, pears, and plums', isCorrect: true },
+                { label: 'cherries, mangoes, and apricots', isCorrect: false },
+                { label: 'carrots, potatoes, and lettuce', isCorrect: false }
             ]
         },
         {
-            question: 'What state is the CRFS in?',
+            question: 'How old was the first teacher of the Fruita school house?',
             choices: [
-                { label: 'Utah', isCorrect: true },
-                { label: 'Nevada', isCorrect: false },
-                { label: 'Idaho', isCorrect: false },
-                { label: 'Arizona', isCorrect: false }
+                { label: '12', isCorrect: true },
+                { label: '22', isCorrect: false },
+                { label: '15', isCorrect: false },
+                { label: '17', isCorrect: false }
             ]
         }
     ]
@@ -68,8 +64,28 @@ export default function HistoryPage() {
     }, [progressData])
 
     return (
-        <main className='p-5'>
-            <p>information about the field station</p>
+        <main className="p-5 flex flex-col gap-5">
+            <h1 className='font-bold text-[35px]'>History</h1>
+
+            <img src="images/taskImages/SP_History_Expedition.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Dominguez Escalante Expedition</h2>
+
+            <p className='text-[15px]'>Their 1776 expedition came close to the area known today as Capitol Reef. Throughout their journey they wrote detailed journals on the difficult terrain, scarcity of resources, and interactions with the Ute tribes.</p>
+
+            <img src="images/taskImages/SP_History_Orchards.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Orchards</h2>
+
+            <p className='text-[15px]'>Nels Johnson and Ephraim Hanks moved into Capitol Reef and claimed the land. In 1880 Johnson planted the first orchards of apples, peaches, pear, plums, walnut, and almond trees.</p>
+
+            <img src="images/taskImages/SP_History_School.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Fruita School House</h2>
+
+            <p className='text-[15px]'>Behumim donated land for the Schoolhouse that was completed in 1896. HIs daughter, 12 at the time, was the school’s first teacher. The school remained open until 1941 but still stands at Capitol Reef.</p>
+
+            <h3 className='font-bold text-[23px] text-center mt-6'>Test Your Knowledge</h3>
 
             <Quiz
                 quiz={quiz}

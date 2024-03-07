@@ -85,57 +85,55 @@ export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
     return (
         <section>
             {quizCompleted === true ? (
-                <h2 className="font-semibold text-2xl m-8 text-center text-success">Quiz Complete ✓</h2>
+                <div className='flex flex-col items-center p-8 gap-8 border border-info rounded-xl'>
+                    <h3 className="font-semibold text-2xl text-success">Quiz Complete ✓</h3>
+                    <a href="/" className='btn'>BACK TO HOME</a>
+                </div>
             ) : (
                 quizCompleted === false ? (
-                    <div>
+                    <form id='quiz' onSubmit={submitOrTryAgain}>
+                        {quiz.map((question, i) => (
+                            <div key={i} className="p-5">
+                                <p className="text-center text-xl font-medium mb-3">{i + 1}. {question.question}</p>
 
-
-                        <h2 className="font-semibold text-2xl m-8 text-center">Test Your Knowledge</h2>
-
-                        <form id='quiz' onSubmit={submitOrTryAgain}>
-                            {quiz.map((question, i) => (
-                                <div key={i} className="p-5">
-                                    <p className="text-center text-xl font-medium mb-3">{i + 1}. {question.question}</p>
-
-                                    <div className="flex flex-col gap-3">
-                                        {question.choices.map((choice, j) => (
-                                            <input
-                                                type="radio"
-                                                name={`question${i + 1}`}
-                                                aria-label={choice.label}
-                                                key={j}
-                                                className={`btn btn-outline border-secondary rounded-full ${showResults ? ( // if showResults is true, and the choice matches the user selected choice, apply the style of correct or incorrect based on choice.isCorrect
-                                                    userAnswers[i].label === choice.label ? (
-                                                        choice.isCorrect ? (
-                                                            styles.choiceCorrect
-                                                        ) : (
-                                                            styles.choiceIncorrect
-                                                        )
-                                                    ) : ''
-                                                ) : styles.quizChoice
-                                                    }`}
-                                                disabled={showResults || quizCompleted}
-                                                onChange={() => handleInputChange(i, choice)}
-                                                required
-                                            />
-                                        ))}
-                                    </div>
+                                <div className="flex flex-col gap-3">
+                                    {question.choices.map((choice, j) => (
+                                        <input
+                                            type="radio"
+                                            name={`question${i + 1}`}
+                                            aria-label={choice.label}
+                                            key={j}
+                                            className={`btn btn-outline border-secondary rounded-full font-normal ${showResults ? ( // if showResults is true, and the choice matches the user selected choice, apply the style of correct or incorrect based on choice.isCorrect
+                                                userAnswers[i].label === choice.label ? (
+                                                    choice.isCorrect ? (
+                                                        styles.choiceCorrect
+                                                    ) : (
+                                                        styles.choiceIncorrect
+                                                    )
+                                                ) : ''
+                                            ) : styles.quizChoice
+                                                }`}
+                                            disabled={showResults || quizCompleted}
+                                            onChange={() => handleInputChange(i, choice)}
+                                            required
+                                        />
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+                        ))}
 
-                            {showResults ? (
-                                <div className='my-4'>
-                                    <p className='text-center'>Score: {userScore}/{quiz.length}</p>
-                                    <p className='text-center'>Required: {quiz.length}/{quiz.length}</p>
-                                    {/* {quizCompleted ? <p className='text-center text-success mt-5'>You finished the quiz!</p> : <p className='text-center text-secondary text-lg mt-5'>Please try the quiz again</p>} */}
-                                    <p className='text-center text-secondary text-lg mt-5'>{quizCompleted ? 'You finished the quiz!' : 'Please try the quiz again'}</p>
-                                </div>
-                            ) : ''}
+                        {showResults ? (
+                            <div className='my-4'>
+                                <p className='text-center'>Score: {userScore}/{quiz.length}</p>
+                                <p className='text-center'>Required: {quiz.length}/{quiz.length}</p>
+                                {/* {quizCompleted ? <p className='text-center text-success mt-5'>You finished the quiz!</p> : <p className='text-center text-secondary text-lg mt-5'>Please try the quiz again</p>} */}
+                                <p className='text-center text-secondary text-lg mt-5'>{quizCompleted ? 'You finished the quiz!' : 'Please try the quiz again'}</p>
+                            </div>
+                        ) : ''}
 
-                            {quizCompleted ? '' : <button type='submit' className="btn btn-secondary rounded-full w-full mt-2" onClick={scrollTo}>{showResults ? 'RETRY QUIZ' : 'SUBMIT'}</button>}
-                        </form>
-                    </div>
+                        {quizCompleted ? '' : <button type='submit' className="btn btn-secondary rounded-full w-full mt-2" onClick={scrollTo}>{showResults ? 'RETRY QUIZ' : 'SUBMIT'}</button>}
+                    </form>
+
                 ) : (
                     <div className='text-center'>
                         <span className="loading loading-spinner loading-lg text-primary"></span>
