@@ -25,18 +25,6 @@ export default function Home() {
         {uncompletedTags ? (
           uncompletedTags.length > 0 ? (
             uncompletedTags.map((tag, i) => (
-              // <div key={i} className=" bg-accent p-3 rounded-lg font-medium transition-all">
-              //   <div className="flex items-center gap-3">
-              //     <figure className="w-1/5"><img src="/images/placeholder-icon.png" alt="" /></figure>
-              //     <p>{progressData[tag].description}</p>
-              //     <button className="btn btn-secondary btn-sm rounded-full">Hint</button>
-              //   </div>
-
-              //   <p className="font-bold mt-4 text-sm text-[#4b4f39] transition-all">{progressData[tag].hint}</p>
-              // </div>
-
-              //
-
               <div key={i} className="collapse bg-accent rounded-lg font-medium">
                 <input type="checkbox" />
                 <div className="collapse-title flex items-center gap-3 pe-4 justify-between"> 
@@ -80,7 +68,7 @@ export default function Home() {
                   <p className="text-[15px]" >{progressData[tag].description}</p>
                 </div>
                 
-                {/*   */}
+                <a href={`/${progressData[tag].name}`} className="btn btn-ghost text-primary-content">VIEW</a>
               </div>
             ))
           ) : (

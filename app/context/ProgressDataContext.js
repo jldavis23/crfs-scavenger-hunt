@@ -5,9 +5,9 @@ export const ProgressDataContext = createContext()
 
 export const ProgressDataProvider = ({ children }) => {
     const initialProgressData = {
-        tag1: { name: 'Sustainability', completed: false, description: 'Sustainability', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_sustainability_icon.svg' },
-        tag2: { name:'History', completed: false, description: 'History', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_history_icon.svg'},
-        tag3: { name: 'Geology', completed: false, description: 'Geology', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_geology_icon.svg' },
+        tag1: { name: 'sustainability', completed: false, description: 'Sustainability', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_sustainability_icon.svg' },
+        tag2: { name:'history', completed: false, description: 'History', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_history_icon.svg'},
+        tag3: { name: 'geology', completed: false, description: 'Geology', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_geology_icon.svg' },
         tag4: { name: 'astronomy', completed: false, description: 'Astronomy', hint: 'Did you check the right side of the CRFS sign?', icon: '/images/icons/SP_astronomy_icon.svg' }
     }
 
