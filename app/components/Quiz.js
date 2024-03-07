@@ -3,11 +3,30 @@ import { useState, useEffect } from 'react'
 import styles from './Quiz.module.css';
 import confetti from 'canvas-confetti'
 
-export const Quiz = ({ quiz, quizCompleted, setQuizCompleted }) => {
+export const Quiz = ({ quiz, setQuiz, quizCompleted, setQuizCompleted }) => {
     // VARIABLES
     const [userAnswers, setUserAnswers] = useState({})
     const [showResults, setShowResults] = useState(false)
     const [userScore, setUserScore] = useState(0)
+
+    // Shuffles the question choices for each question
+    useEffect(() => {
+        let arr = [...quiz]
+
+        arr.forEach(question => {
+            let currIndex = question.choices.length, randomIndex
+
+            while (currIndex > 0) {
+                randomIndex = Math.floor(Math.random() * currIndex)
+                currIndex--
+
+                [question.choices[currIndex], question.choices[randomIndex]] = [question.choices[randomIndex], question.choices[currIndex]]
+            }
+        })
+
+        setQuiz(arr)
+    }, [])
+
 
     useEffect(() => {
         quiz.forEach((question, i) => {

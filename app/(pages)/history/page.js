@@ -9,8 +9,7 @@ import { HuntCompleteModal } from '../../components/HuntCompleteModal'
 export default function HistoryPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [quizCompleted, setQuizCompleted] = useState(null)
-
-    const quiz = [
+    const [quiz, setQuiz] = useState([
         {
             question: 'What year was the expedition that came near Capitol Reef?',
             choices: [
@@ -37,7 +36,7 @@ export default function HistoryPage() {
                 { label: '17', isCorrect: false }
             ]
         }
-    ]
+    ])
 
     // Set quizCompleted to the current value of tag2.completed
     useEffect(() => {
@@ -67,19 +66,19 @@ export default function HistoryPage() {
         <main className="p-5 flex flex-col gap-5">
             <h1 className='font-bold text-[35px]'>History</h1>
 
-            <img src="images/taskImages/SP_History_Expedition.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_History_Expedition.webp" alt="" className='rounded-3xl' />
 
             <h2 className='font-bold text-[30px]'>Dominguez Escalante Expedition</h2>
 
             <p className='text-[15px]'>Their 1776 expedition came close to the area known today as Capitol Reef. Throughout their journey they wrote detailed journals on the difficult terrain, scarcity of resources, and interactions with the Ute tribes.</p>
 
-            <img src="images/taskImages/SP_History_Orchards.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_History_Orchards.webp" alt="" className='rounded-3xl' />
 
             <h2 className='font-bold text-[30px]'>Orchards</h2>
 
             <p className='text-[15px]'>Nels Johnson and Ephraim Hanks moved into Capitol Reef and claimed the land. In 1880 Johnson planted the first orchards of apples, peaches, pear, plums, walnut, and almond trees.</p>
 
-            <img src="images/taskImages/SP_History_School.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_History_School.webp" alt="" className='rounded-3xl' />
 
             <h2 className='font-bold text-[30px]'>Fruita School House</h2>
 
@@ -89,11 +88,12 @@ export default function HistoryPage() {
 
             <Quiz
                 quiz={quiz}
+                setQuiz={setQuiz}
                 quizCompleted={quizCompleted}
                 setQuizCompleted={setQuizCompleted}
             />
 
-            <HuntCompleteModal/>
+            <HuntCompleteModal />
         </main>
     )
 }
