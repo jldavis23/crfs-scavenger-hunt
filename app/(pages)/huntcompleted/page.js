@@ -24,16 +24,16 @@ export default function CompletedPage() {
         <main className='p-5'>
             {huntCompleted === true ? (
                 <div className='text-center mx-4'>
-                    <figure className=''><img src="/images/raccoon.png" alt="raccoon with party hat" /></figure>
+                    <figure className='w-1/2 m-auto'><img src="/images/SP_Completed_Bighorn.png" alt="" /></figure>
                     <h1 className='font-bold text-4xl my-5'>Wahoo!</h1>
                     <p>You have completed the scavenger hunt. Show this screen to the site manager to claim your prize.</p>
                     <a href="/" className='btn btn-secondary rounded-full w-full mt-6'>DONE</a>
                 </div>
             ) : (
                 huntCompleted === false ? (
-                    <div>
-                        <p>you haven't completed the scavenger hunt yet</p>
-                        <a href="/" className='btn btn-secondary rounded-full w-full mt-6'>OKAY</a>
+                    <div className='text-center'>
+                        <p className='font-bold text-xl mt-6'>You haven't completed the scavenger hunt yet</p>
+                        <a href="/" className='btn btn-secondary rounded-full w-full mt-6'>RETURN TO HOME</a>
                     </div>
                 ) : (
                     <div className='text-center'>
