@@ -1,7 +1,6 @@
 'use client'
 // TAG 1
 import { useContext, useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { ProgressDataContext } from '../../context/ProgressDataContext'
 
 import { Quiz } from '../../components/Quiz.js'
@@ -10,38 +9,34 @@ import { HuntCompleteModal } from '../../components/HuntCompleteModal'
 export default function SustainabilityPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [quizCompleted, setQuizCompleted] = useState(null)
-
-    const router = useRouter()
-
-    const quiz = [
+    const [quiz, setQuiz] = useState([
         {
-            question: 'What is the first color of the rainbow?',
+            question: 'What type of power do the solar panels produce?',
             choices: [
-                { label: 'red', isCorrect: true },
-                { label: 'blue', isCorrect: false },
-                { label: 'green', isCorrect: false },
-                { label: 'orange', isCorrect: false }
+                { label: 'AC', isCorrect: true },
+                { label: 'DC', isCorrect: false },
+                { label: 'Nuclear', isCorrect: false },
+                { label: 'Reactive power', isCorrect: false }
             ]
         },
         {
-            question: 'What is 2+2?',
+            question: 'Which direction do the trombe walls face?',
             choices: [
-                { label: '4', isCorrect: true },
-                { label: '6', isCorrect: false },
-                { label: '3', isCorrect: false },
-                { label: '2', isCorrect: false }
+                { label: 'South', isCorrect: true },
+                { label: 'North', isCorrect: false },
+                { label: 'East', isCorrect: false },
+                { label: 'West', isCorrect: false }
             ]
         },
         {
-            question: 'What state is the CRFS in?',
+            question: 'On average, how much rain does Capitol Reef get each year?',
             choices: [
-                { label: 'Utah', isCorrect: true },
-                { label: 'Nevada', isCorrect: false },
-                { label: 'Idaho', isCorrect: false },
-                { label: 'Arizona', isCorrect: false }
+                { label: 'Less than 8"', isCorrect: true },
+                { label: 'Less than 7"', isCorrect: false },
+                { label: 'Less than 4"', isCorrect: false },
             ]
         }
-    ]
+    ])
 
     // Set quizCompleted to the current value of tag1.completed
     useEffect(() => {
@@ -68,16 +63,37 @@ export default function SustainabilityPage() {
     }, [progressData])
 
     return (
-        <main className='p-5'>
-            <p>information about the field station</p>
+        <main className="p-5 flex flex-col gap-5">
+            <h1 className='font-bold text-[35px]'>Sustainability</h1>
+
+            <img src="images/taskImages/SP_Enviro_Battery.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Electricity</h2>
+
+            <p className='text-[15px]'>The field station produces its own electricity through 72,200 watt solar panels. The panels produce DC power which is then stored in a bank of lithium-ion batteries (see image above) and is converted to AC power to use on demand.</p>
+
+            <img src="images/taskImages/SP_Enviro_HeatingCooling.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Heating & Cooling</h2>
+
+            <p className='text-[15px]'>Trombe walls (see image above) capture and release energy depending on the season. These walls face south, are painted black, and must be covered with a pane of glass. This creates air pockets between the wall and glass which can heat up in the Winter and reduce heat in the Summer.</p>
+
+            <img src="images/taskImages/SP_Enviro_WaterTank.webp" alt="" className='rounded-3xl'/>
+
+            <h2 className='font-bold text-[30px]'>Water</h2>
+
+            <p className='text-[15px]'>The Field Station gets its water from Pleasant Creek using solar power to transport it uphill to the water treatment facility. From there it is then filtered and treated for visitors use. As Capitol Reef National Park receives less than 8” of water each year it is vital to be mindful of water use.</p>
+
+            <h3 className='font-bold text-[23px] text-center mt-6'>Test Your Knowledge</h3>
 
             <Quiz
                 quiz={quiz}
+                setQuiz={setQuiz}
                 quizCompleted={quizCompleted}
                 setQuizCompleted={setQuizCompleted}
             />
 
-            <HuntCompleteModal/>
+            <HuntCompleteModal />
         </main>
     )
 }
