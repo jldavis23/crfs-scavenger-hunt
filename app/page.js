@@ -42,7 +42,7 @@ export default function Home() {
             ))
           ) : (
             <div className="bg-neutral text-center p-3 rounded-lg font-medium">
-              <p className="font-bold mb-2">You have found and completed all the tags!</p>
+              <p className="font-bold mb-2">You have found all the tags and completed the scavenger hunt!</p>
               <a href="/huntcompleted" className="link">See certificate →</a>
             </div>
           )
