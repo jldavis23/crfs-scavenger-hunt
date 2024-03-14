@@ -63,7 +63,7 @@ export default function SustainabilityPage() {
     }, [progressData])
 
     return (
-        <main className="p-5 flex flex-col gap-5">
+        <main className="p-5 flex flex-col gap-5 max-w-[700px] m-auto">
             <h1 className='font-bold text-[35px]'>Sustainability</h1>
 
             <img src="images/taskImages/SP_Enviro_Battery.webp" alt="" className='rounded-3xl'/>

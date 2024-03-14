@@ -21,7 +21,7 @@ export default function CompletedPage() {
     }, [huntCompleted])
 
     return (
-        <main className='p-5'>
+        <main className='p-5 max-w-[700px] m-auto'>
             {huntCompleted === true ? (
                 <div className='text-center mx-4'>
                     <figure className='w-1/2 m-auto'><img src="/images/SP_Completed_Bighorn.png" alt="" /></figure>

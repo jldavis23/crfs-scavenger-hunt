@@ -102,7 +102,7 @@ export const Quiz = ({ quiz, setQuiz, quizCompleted, setQuizCompleted }) => {
     }
 
     return (
-        <section>
+        <section className='max-w-[500px] w-full m-auto'>
             {quizCompleted === true ? (
                 <div className='flex flex-col items-center p-8 gap-8 border border-info rounded-xl'>
                     <h3 className="font-semibold text-2xl text-success">Quiz Complete ✓</h3>

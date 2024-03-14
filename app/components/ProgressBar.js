@@ -24,8 +24,8 @@ export const ProgressBar = () => {
 
 
   return (
-    <section>
-      <div className="flex gap-3 p-4 fixed top-0 w-full min-h-[86px] z-50 bg-white shadow">
+    <section className='bg-white shadow w-full fixed top-0 min-h-[86px] z-50'>
+      <div className="flex gap-3 p-4 max-w-[700px] m-auto">
         <div className='flex gap-2'>
           <a href="/" className='btn btn-circle'><img src="images/icons/SP_Home_Icon.svg" alt="Home"/></a>
         </div>

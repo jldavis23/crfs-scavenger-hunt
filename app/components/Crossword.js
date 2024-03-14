@@ -23,7 +23,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
     }
 
     return (
-        <section>
+        <section className='max-w-[500px] m-auto w-full'>
             {puzzleCompleted === true ? (
                 <div className='flex flex-col items-center p-8 gap-8 border border-info rounded-xl'>
                     <h3 className="font-semibold text-2xl text-success">Puzzle Complete ✓</h3>
@@ -34,7 +34,7 @@ export const Crossword = ({ puzzle, puzzleCompleted, setPuzzleCompleted }) => {
 
 
                     <div className="flex flex-col items-center gap-10">
-                        <div className=''>
+                        <div>
                             {puzzle.crosswordRows.map((row, i) => (
                                 <div key={i} className="flex">
                                     {row.map((cell, j) =>

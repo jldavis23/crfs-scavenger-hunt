@@ -16,7 +16,7 @@ export default function Home() {
 
 
   return (
-    <main className="p-5">
+    <main className="p-5 max-w-[700px] m-auto">
 
       {/* UNCOMPLETED TAGS */}
       <h2 className="text-[35px] font-bold">To Find</h2>

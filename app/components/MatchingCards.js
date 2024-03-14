@@ -69,7 +69,7 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
     }
 
     return (
-        <section className='border border-info rounded-xl p-2'>
+        <section className='border border-info rounded-xl p-2 max-w-[500px] m-auto w-full'>
             {matchingCompleted === true ? (
                 <div className='flex flex-col items-center p-8 gap-8'>
                     <h3 className="font-semibold text-2xl text-success">Game Complete ✓</h3>

@@ -79,7 +79,7 @@ export default function AstronomyPage() {
     }, [progressData])
 
     return (
-        <main className="p-5 flex flex-col gap-5">
+        <main className="p-5 flex flex-col gap-5 max-w-[700px] m-auto">
             <h1 className='font-bold text-[35px]'>Astronomy</h1>
 
             <img src="images/taskImages/SP_Astro_Dark_Sky.webp" alt="the milky way behind a mountain" className='rounded-3xl'/>

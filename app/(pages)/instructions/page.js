@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 
 export default function InstructionsPage() {
     const instructions = [
@@ -36,32 +35,33 @@ export default function InstructionsPage() {
     ]
 
     return (
-        <div className="bg-primary p-5 flex flex-col gap-10 text-white">
-            <div className='flex gap-5 justify-between'>
-                <figure><img src='/images/logos/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
-                <figure><img src='/images/logos/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
-            </div>
-
-            <div className="flex flex-col gap-4">
-                <h1 className="text-4xl font-semibold font-cabinSketch">Welcome to the Captiol Reef Field Station Scavenger Hunt!</h1>
-
-                <div className='flex flex-col gap-12 mb-10'>
-                    {instructions.map((step, i) => (
-                        <div key={i}>
-                            <div className="flex gap-3 mb-3">
-                                <p className="text-4xl font-semibold text-[#BCCE95] flex items-center">{i + 1}</p>
-                                <p className="text-lg">{step.text}</p>
-                            </div>
-
-                            <img src={step.imagePath} alt={step.alt} />
-                        </div>
-                    ))}
+        <main className="bg-primary">
+            <div className="p-5 flex flex-col gap-10 text-white max-w-[700px] m-auto">
+                <div className='flex gap-5 justify-between'>
+                    <figure><img src='/images/logos/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
+                    <figure><img src='/images/logos/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
                 </div>
 
-                <a href="/" className="btn btn-accent text-accent-content border border-white mb-10">START</a>
-                <p className="text-center">© UVU DWDD 490R | 2024</p>
-            </div>
+                <div className="flex flex-col gap-4">
+                    <h1 className="text-4xl font-semibold font-cabinSketch">Welcome to the Captiol Reef Field Station Scavenger Hunt!</h1>
 
-        </div>
+                    <div className='flex flex-col gap-12 mb-10'>
+                        {instructions.map((step, i) => (
+                            <div key={i}>
+                                <div className="flex gap-3 mb-3">
+                                    <p className="text-4xl font-semibold text-[#BCCE95] flex items-center">{i + 1}</p>
+                                    <p className="text-lg">{step.text}</p>
+                                </div>
+
+                                <img src={step.imagePath} alt={step.alt} />
+                            </div>
+                        ))}
+                    </div>
+
+                    <a href="/" className="btn btn-accent text-accent-content border border-white mb-10">START</a>
+                    <p className="text-center">© UVU DWDD 490R | 2024</p>
+                </div>
+            </div>
+        </main>
     )
 }

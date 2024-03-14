@@ -32,20 +32,6 @@ module.exports = {
           "base-100": "#ffffff",
           "info": "#aebdf8",
           "success": "#b6bab0",
-          "warning": "#ffffff",
-          "error": "#f4cccd",
-        },
-      },
-      {
-        myTheme: {
-          "primary": "#74795a",
-          "secondary": "#9e5d44",
-          "accent": "#dbdfd6",
-          "neutral": "#f4f4f4",
-          "base-100": "#ffffff",
-          "info": "#aebdf8",
-          "success": "#b6bab0",
-          "warning": "#ffffff",
           "error": "#f4cccd",
         },
       }
