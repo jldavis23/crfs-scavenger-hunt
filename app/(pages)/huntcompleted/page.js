@@ -21,10 +21,10 @@ export default function CompletedPage() {
     }, [huntCompleted])
 
     return (
-        <main className='p-5 max-w-[700px] m-auto'>
+        <main className='p-5 max-w-[600px] m-auto'>
             {huntCompleted === true ? (
                 <div className='text-center mx-4'>
-                    <figure className='w-1/2 m-auto'><img src="/images/SP_Completed_Bighorn.png" alt="" /></figure>
+                    <figure className='w-1/2 m-auto'><img src="/images/SP_Completed_Bighorn.png" alt="illustration of a bighorn sheep with a party hat" /></figure>
                     <h1 className='font-bold text-4xl my-5'>Wahoo!</h1>
                     <p>You have completed the scavenger hunt. Show this screen to the site manager to claim your prize.</p>
                     <a href="/" className='btn btn-secondary rounded-full w-full mt-6'>DONE</a>

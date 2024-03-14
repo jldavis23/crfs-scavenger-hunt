@@ -15,6 +15,7 @@ export default function GeologyPage() {
             id: 1,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Basalt_Boulders.webp',
+            alt: 'Basalt Boulders',
             match: 2,
             isFlipped: false,
             isMatched: false
@@ -31,6 +32,7 @@ export default function GeologyPage() {
             id: 3,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Henry_Mount.webp',
+            alt: 'Henry Mountains',
             match: 4,
             isFlipped: false,
             isMatched: false
@@ -47,6 +49,7 @@ export default function GeologyPage() {
             id: 5,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Kayenta_Formation.webp',
+            alt: 'Kayenta Formation',
             match: 6,
             isFlipped: false,
             isMatched: false
@@ -63,6 +66,7 @@ export default function GeologyPage() {
             id: 7,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Navajo_Sand.webp',
+            alt: 'Navajo Sandstone',
             match: 8,
             isFlipped: false,
             isMatched: false
@@ -79,6 +83,7 @@ export default function GeologyPage() {
             id: 9,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Waterpocket.webp',
+            alt: 'Waterpocket Fold',
             match: 10,
             isFlipped: false,
             isMatched: false
@@ -95,6 +100,7 @@ export default function GeologyPage() {
             id: 11,
             isImage: true,
             imagePath: '/images/cardGameImages/SP_Match_Windgate.webp',
+            alt: 'Windgate',
             match: 12,
             isFlipped: false,
             isMatched: false
@@ -134,16 +140,16 @@ export default function GeologyPage() {
     }, [progressData])
 
     return (
-        <main className="p-5 flex flex-col gap-5 max-w-[700px] m-auto">
+        <main className="p-5 flex flex-col gap-5 max-w-[600px] m-auto">
             <h1 className='font-bold text-[35px]'>Geology</h1>
 
-            <img src="images/taskImages/SP_Geo_Desposition.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Geo_Desposition.webp" alt="rock formation at Captiol Reef with a wooden fence in front" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Deposition</h2>
 
             <p className='text-[15px]'>From the Field Station the visible layers are the red and tan Wingate cliffs, the Kayenta (where plants grow more easily), and the Navajo Sandstone (tan and white rounded slopes). Wingate Sandstone is cliff-forming and develops many vertical cracks in it. Above the Wingate (and therefore younger) is the Kayenta Formation. The youngest rock layer visible from Pleasant Creek is the Navajo Sandstone, the tan or white rounded domes above the Kayenta. The layers visible in Pleasant Creek are all Jurassic (200-145 MYA).</p>
 
-            <img src="images/taskImages/SP_Geo_Uplift.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Geo_Uplift.webp" alt="the Waterpocket fold" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Uplift</h2>
 
@@ -151,7 +157,7 @@ export default function GeologyPage() {
 
             <p className='text-[15px]'>The name Waterpocket Fold comes from the many water pockets, depressions which often form in the sandstone layers, that fill with rainwater and snowmelt. For the early explorers, the waterpockets were essential to their travel, since they were in a land that was new to them. Fold refers to the eroded monocline, a fold or wrinkle in the earth’s crust. The Waterpocket Fold is so large that it can be seen from the International Space Station!</p>
 
-            <img src="images/taskImages/SP_Geo_Erosion.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Geo_Erosion.webp" alt="a gorge at Capitol Reef" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Erosion</h2>
 

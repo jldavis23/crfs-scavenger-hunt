@@ -16,7 +16,7 @@ export default function Home() {
 
 
   return (
-    <main className="p-5 max-w-[700px] m-auto">
+    <main className="p-5 max-w-[600px] m-auto">
 
       {/* UNCOMPLETED TAGS */}
       <h2 className="text-[35px] font-bold">To Find</h2>
@@ -29,7 +29,7 @@ export default function Home() {
                 <input type="checkbox" />
                 <div className="collapse-title flex items-center gap-3 pe-4 justify-between"> 
                   <div className="flex items-center gap-3">
-                    <img className="w-12" src={progressData[tag].icon} alt="" />
+                    <img className="w-12" src={progressData[tag].icon} alt={`${progressData.name} icon`} />
                     <p className="text-[15px]">{progressData[tag].description}</p>
                   </div>
                   
@@ -64,7 +64,7 @@ export default function Home() {
             completedTags.map((tag, i) => (
               <div key={i} className="flex items-center justify-between gap-3 bg-[#7d8376] p-3 rounded-lg font-medium">
                 <div className="flex items-center gap-3">
-                  <img className="w-12" src={progressData[tag].icon} alt="" />
+                  <img className="w-12" src={progressData[tag].icon} alt={`${progressData.name} icon`} />
                   <p className="text-[15px]" >{progressData[tag].description}</p>
                 </div>
                 

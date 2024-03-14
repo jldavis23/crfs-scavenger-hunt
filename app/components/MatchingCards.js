@@ -87,8 +87,7 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
                                     <div className={`${styles.cardFace} ${styles.front}`}></div>
 
                                     <div className={`${styles.cardFace} ${styles.back}`}>
-                                        {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
-
+                                        {card.isImage ? <img src={card.imagePath} alt={card.alt} className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
                                     </div>
                                 </div>
                             </div>

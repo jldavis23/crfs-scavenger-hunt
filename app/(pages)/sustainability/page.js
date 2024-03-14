@@ -63,22 +63,22 @@ export default function SustainabilityPage() {
     }, [progressData])
 
     return (
-        <main className="p-5 flex flex-col gap-5 max-w-[700px] m-auto">
+        <main className="p-5 flex flex-col gap-5 max-w-[600px] m-auto">
             <h1 className='font-bold text-[35px]'>Sustainability</h1>
 
-            <img src="images/taskImages/SP_Enviro_Battery.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Enviro_Battery.webp" alt="battery packs at the Capitol Reef Field Station" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Electricity</h2>
 
             <p className='text-[15px]'>The field station produces its own electricity through 72,200 watt solar panels. The panels produce DC power which is then stored in a bank of lithium-ion batteries (see image above) and is converted to AC power to use on demand.</p>
 
-            <img src="images/taskImages/SP_Enviro_HeatingCooling.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Enviro_HeatingCooling.webp" alt="Trombe walls" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Heating & Cooling</h2>
 
             <p className='text-[15px]'>Trombe walls (see image above) capture and release energy depending on the season. These walls face south, are painted black, and must be covered with a pane of glass. This creates air pockets between the wall and glass which can heat up in the Winter and reduce heat in the Summer.</p>
 
-            <img src="images/taskImages/SP_Enviro_WaterTank.webp" alt="" className='rounded-3xl'/>
+            <img src="images/taskImages/SP_Enviro_WaterTank.webp" alt="Water tank" className='rounded-3xl'/>
 
             <h2 className='font-bold text-[30px]'>Water</h2>
 

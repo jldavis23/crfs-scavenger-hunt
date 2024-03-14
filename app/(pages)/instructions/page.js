@@ -36,7 +36,7 @@ export default function InstructionsPage() {
 
     return (
         <main className="bg-primary">
-            <div className="p-5 flex flex-col gap-10 text-white max-w-[700px] m-auto">
+            <div className="p-5 flex flex-col gap-10 text-white max-w-[600px] m-auto">
                 <div className='flex gap-5 justify-between'>
                     <figure><img src='/images/logos/crfs-logo.png' alt='CRFS Logo' className="w-20" /></figure>
                     <figure><img src='/images/logos/uvu-dgm-logo.png' alt="UVU DGM Logo" className="w-32" /></figure>
