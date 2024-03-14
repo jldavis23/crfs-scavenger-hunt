@@ -72,7 +72,10 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
         <section className='border border-info rounded-xl p-2 max-w-[500px] m-auto w-full'>
             {matchingCompleted === true ? (
                 <div className='flex flex-col items-center p-8 gap-8'>
-                    <h3 className="font-semibold text-2xl text-success">Game Complete ✓</h3>
+                    <h3 className="font-semibold text-2xl text-success flex gap-2">
+                        <span>Game Complete</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill='currentColor'><path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/></svg>
+                    </h3>
                     <a href="/" className='btn'>BACK TO HOME</a>
                 </div>
             ) : (
@@ -81,9 +84,7 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
                         {cards.map(card => (
                             <div key={card.id} className={`${styles.scene}`}>
                                 <div className={`${styles.card} ${card.isFlipped ? styles.flipped : ''} ${card.isMatched ? styles.matched : ''}`} onClick={() => handleCardFlip(card)}>
-                                    <figure className={`${styles.cardFace} ${styles.front}`}>
-                                        {/* <img src="/images/cardGameImages/card-front.png" className='rounded-lg' /> */}
-                                    </figure>
+                                    <div className={`${styles.cardFace} ${styles.front}`}></div>
 
                                     <div className={`${styles.cardFace} ${styles.back}`}>
                                         {card.isImage ? <img src={card.imagePath} alt="" className='rounded-lg' /> : <p className='h-full p-1 text-center flex justify-center items-center'>{card.text}</p>}
@@ -93,16 +94,12 @@ export const MatchingCards = ({ cards, setCards, matchingCompleted, setMatchingC
                             </div>
                         ))}
                     </div>
-
-
                 ) : (
                     <div className='text-center'>
                         <span className="loading loading-spinner loading-lg text-primary"></span>
                     </div>
                 )
             )}
-
-
         </section>
 
     )

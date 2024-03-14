@@ -105,7 +105,10 @@ export const Quiz = ({ quiz, setQuiz, quizCompleted, setQuizCompleted }) => {
         <section className='max-w-[500px] w-full m-auto'>
             {quizCompleted === true ? (
                 <div className='flex flex-col items-center p-8 gap-8 border border-info rounded-xl'>
-                    <h3 className="font-semibold text-2xl text-success">Quiz Complete ✓</h3>
+                    <h3 className="font-semibold text-2xl text-success flex gap-2">
+                        <span>Quiz Complete</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill='currentColor'><path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/></svg>
+                    </h3>
                     <a href="/" className='btn'>BACK TO HOME</a>
                 </div>
             ) : (
