@@ -3,24 +3,24 @@
 export default function InstructionsPage() {
     const instructions = [
         {
-            text: 'Search inside the field station for small white tags/chips/discs attached to the walls.',
-            imagePath: '/images/NFC-chip.jpg',
-            alt: 'An example of a tag/chip/disc'
+            text: 'Search inside the field station for small white tags with icons attached to the walls.',
+            imagePath: '/images/iconChip.jpg',
+            alt: 'An example of a tag'
         },
         {
-            text: 'When you have located a tag, place your phone over it to bring up a new webpage.',
-            imagePath: '/images/scan-animation.gif',
-            alt: 'Animation demonstrating how to scan the chip'
+            text: 'When you have located a tag, place your phone over the tag to bring up a new webpage.',
+            imagePath: '/images/scan-example.gif',
+            alt: 'GIF demonstrating how to scan the tag'
         },
         {
             text: 'Read the information on the page and complete the activity.',
-            imagePath: '',
-            alt: ''
+            imagePath: '/images/read-info.gif',
+            alt: 'GIF showing an example of a scavenger hunt page'
         },
         {
-            text: 'Look for more tags! Your progress will be tracked in a progress bar at the top of the screen.',
-            imagePath: '',
-            alt: ''
+            text: 'Look for more tags! Your progress will be tracked in the progress bar at the top of the screen as well as the home page. (Hint: the icon on the home page corresponds to the icon on the tag)',
+            imagePath: '/images/homePage.jpg',
+            alt: 'screenshot of the home page with the progress bar at the top and tags to find listed below, each with a corresponding icon'
         },
         {
             text: 'Once you have located and completed the activity for each tag, show your completed screen to the site manager to earn a small prize!',
@@ -28,7 +28,12 @@ export default function InstructionsPage() {
             alt: ''
         },
         {
-            text: 'Important! Make sure to NOT use a private/incognito tab and to NOT clear your browsing history while playing the scavenger hunt or else your progress will not be saved correctly!',
+            text: 'IMPORTANT! Make sure to NOT use a private/incognito tab and to NOT clear your browsing history while playing the scavenger hunt or else your progress will not be saved correctly!',
+            imagePath: '',
+            alt: ''
+        },
+        {
+            text: 'If you need these instructions again, simply tap the "?" icon at the top of the screen.',
             imagePath: '',
             alt: ''
         }
@@ -53,7 +58,9 @@ export default function InstructionsPage() {
                                     <p className="text-lg">{step.text}</p>
                                 </div>
 
-                                <img src={step.imagePath} alt={step.alt} />
+                                {step.imagePath ? (
+                                    <img src={step.imagePath} alt={step.alt} className='rounded-3xl'/>
+                                ) : ''}
                             </div>
                         ))}
                     </div>
