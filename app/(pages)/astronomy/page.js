@@ -56,12 +56,14 @@ export default function AstronomyPage() {
         }
     }
 
+    // Sync progress data with the puzzleCompleted variable
     useEffect(() => {
         if (progressData) {
             setPuzzleCompleted(progressData.tag4.completed)
         }
     }, [progressData])
 
+    // If puzzleCompleted changes, update the progressData
     useEffect(() => {
         setProgressData(prevState => ({
             ...prevState,

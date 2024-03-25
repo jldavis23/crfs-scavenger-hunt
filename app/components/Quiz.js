@@ -148,7 +148,6 @@ export const Quiz = ({ quiz, setQuiz, quizCompleted, setQuizCompleted }) => {
                             <div className='my-4'>
                                 <p className='text-center'>Score: {userScore}/{quiz.length}</p>
                                 <p className='text-center'>Required: {quiz.length}/{quiz.length}</p>
-                                {/* {quizCompleted ? <p className='text-center text-success mt-5'>You finished the quiz!</p> : <p className='text-center text-secondary text-lg mt-5'>Please try the quiz again</p>} */}
                                 <p className='text-center text-secondary text-lg mt-5'>{quizCompleted ? 'You finished the quiz!' : 'Please try the quiz again'}</p>
                             </div>
                         ) : ''}

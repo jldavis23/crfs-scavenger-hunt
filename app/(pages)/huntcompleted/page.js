@@ -7,16 +7,17 @@ export default function CompletedPage() {
     const { progressData, setProgressData } = useContext(ProgressDataContext)
     const [huntCompleted, setHuntCompleted] = useState(null)
 
+    // Checks if the scavenger hunt is complete and runs when progressData changes
     useEffect(() => {
         if (progressData) {
             setHuntCompleted(Object.keys(progressData).every(tag => progressData[tag].completed === true))
         }
     }, [progressData])
 
+    // Make confetti if hunt is complete
     useEffect(() => {
         if (huntCompleted === true) {
             confetti()
-            console.log(huntCompleted)
         }
     }, [huntCompleted])
 
