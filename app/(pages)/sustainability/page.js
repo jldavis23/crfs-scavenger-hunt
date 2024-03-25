@@ -13,8 +13,8 @@ export default function SustainabilityPage() {
         {
             question: 'What type of power do the solar panels produce?',
             choices: [
-                { label: 'AC', isCorrect: true },
-                { label: 'DC', isCorrect: false },
+                { label: 'DC', isCorrect: true },
+                { label: 'AC', isCorrect: false },
                 { label: 'Nuclear', isCorrect: false },
                 { label: 'Reactive power', isCorrect: false }
             ]
